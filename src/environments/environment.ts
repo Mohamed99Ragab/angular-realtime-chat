@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  BaseUrl:'http://websocket-chat.test/api/',
+  broadcastBaseUrl:'http://websocket-chat.test/broadcasting/auth',
+  pusher_key: 'mragab@1989msdfgj4t1',
+  pusher_cluster: 'mt1',
+  pusher_host: `localhost`
+  
 };
 
 /*

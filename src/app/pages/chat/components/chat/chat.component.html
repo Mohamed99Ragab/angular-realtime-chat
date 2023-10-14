@@ -1,0 +1,70 @@
+<section>
+  <div class="container py-5 px-4">
+    <!-- For demo purpose-->
+    <header class="text-center my-4">
+      <h1 class="display-4 text-white">{{authUser.name}} Chat</h1>
+      <p class="text-white lead mb-0">This is a real time chat application you can make chat with group<br> or private chat with specific user</p>
+    
+    </header>
+  
+    <div class="row rounded-lg overflow-hidden shadow">
+      <!-- Users box-->
+      <div class="col-5 px-0 bg-white">
+        <div class="bg-white">
+  
+          <div class="bg-gray px-4 py-2 bg-light">
+            <p class="h5 mb-0 py-1">Recent</p>
+          </div>
+          <!-- list users -->
+        <app-list-users (selectedAuthUser)="getSelectedAuthUser($event)"
+        [messageNotification]="messageNotification"
+        [authUser]="authUser"
+        [usersList]="users"></app-list-users>
+        <!-- List Users -->
+        </div>
+      </div>
+      <!-- Chat Box-->
+      <div class="col-7 px-0">
+        <!-- Group Chat Section -->
+      <ng-container *ngIf="!selectedUser">
+        <div class="p-3 chat-box-header bg-light">
+          <p class="h5 mb-0 py-1 ml-3 d-inline-block">Group Chat</p>
+        </div>
+        <app-chat-body-group [allMessages]="groupMessages"></app-chat-body-group>
+      </ng-container>
+
+      <!-- Private Chat Section -->
+      <ng-container *ngIf="selectedUser">
+        <div class="p-3 chat-box-header bg-light">
+          <img src="../../../../../assets/imgs/avatar.png" alt="user" width="50" class="rounded-circle">
+          <p class="h5 mb-0 py-1 ml-3 d-inline-block">{{selectedUser.name}}</p>
+        </div>
+        <app-chat-body-private [allMessages]="privateMessages"
+                               [authUser]="authUser"
+                               [selectedUser]="selectedUser"></app-chat-body-private>
+      </ng-container>
+  
+        <!-- Typing area -->
+        
+        <form *ngIf="!selectedUser" [formGroup]="chatForm" (ngSubmit)="sendGroupMessage()" class="bg-light">
+          <div class="input-group">
+            <input type="text" formControlName="message"  name="message" placeholder="Type a message" aria-describedby="button-addon2" class="form-control rounded-0 border-0 py-4 bg-light">
+            <div class="input-group-append">
+              <button  id="button-addon2" type="submit"  class="btn btn-link"> <i class="fa fa-paper-plane"></i></button>
+            </div>
+          </div>
+        </form>
+
+        <form *ngIf="selectedUser" [formGroup]="chatForm" (ngSubmit)="sendPrivateMessage()" class="bg-light">
+          <div class="input-group">
+            <input type="text" formControlName="message"  name="message" placeholder="Type a message" aria-describedby="button-addon2" class="form-control rounded-0 border-0 py-4 bg-light">
+            <div class="input-group-append">
+              <button  id="button-addon1" type="submit"  class="btn btn-link"> <i class="fa fa-paper-plane"></i></button>
+            </div>
+          </div>
+        </form>
+  
+      </div>
+    </div>
+  </div>
+</section>

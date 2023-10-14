@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg  w-75 mx-auto">
+    <a class="navbar-brand" href="#">Elgwile</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- <span class="navbar-toggler-icon"></span> -->
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto ">
+  
+    
+        <li class="nav-item mr-3 my-2">
+          <a *ngIf="!this._AuthService.authToken" class="btn-login btn-sm"   routerLink="/signin" routerLinkActive="router-link-active" >Login</a>
+        </li>
+        <li class="nav-item mr-3 my-2">
+          <a *ngIf="!this._AuthService.authToken" class="btn-register btn-sm"  routerLink="/signup" routerLinkActive="router-link-active">Register</a>
+        </li>
+       
+        <li class="nav-item my-2">
+          <a *ngIf="this._AuthService.authToken" class="btn-logout btn-sm"  (click)="logout()" routerLinkActive="router-link-active">Logout</a>
+        </li>
+      </ul>
+      
+    </div>
+  </nav>

@@ -1,0 +1,48 @@
+
+
+<section>
+    <div class="register-content">
+        <form [formGroup]="myForm" (ngSubmit)="register()" autocomplete="off" class="w-75 mx-auto">
+
+        <div class="row">
+            <div class="col-md-12">
+                <input type="text" [class.is-valid]="myForm.controls.name.status=='VALID'" formControlName="name" class="form-control my-2" placeholder="name">
+                <div *ngIf="myForm.controls.name.errors && myForm.controls.name.touched" class="alert alert-danger mt-1">
+                    <small *ngIf="myForm.controls.name.errors['required']">name Is required</small>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <input type="email" [class.is-valid]="myForm.controls.email.status=='VALID'" formControlName="email" class="form-control my-2" placeholder="email">
+                <div *ngIf="myForm.controls.email.errors && myForm.controls.email.touched" class="alert alert-danger mt-1">
+                
+                    <small *ngIf="myForm.controls.email.errors['required']">Email Is required</small>
+                    <small *ngIf="myForm.controls.email.errors['email']">Email Not vaild</small>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <input type="password" [class.is-valid]="myForm.controls.password.status=='VALID'" formControlName="password" class="form-control my-2" placeholder="password">
+                <div *ngIf="myForm.controls.password.errors && myForm.controls.password.touched" class="alert alert-danger mt-1">
+                    <small *ngIf="myForm.controls.password.errors['required']">Password is required</small>
+                   
+                </div>
+            </div>
+            <div class="col-md-12">
+                <input type="password" [class.is-valid]="myForm.controls.c_password.status=='VALID'" formControlName="c_password" class="form-control my-2" placeholder="confirm password">
+                <div *ngIf="myForm.controls.c_password.errors && myForm.controls.c_password.touched" class="alert alert-danger mt-1">
+                    <small *ngIf="myForm.controls.c_password.errors['required']">Password confirmation is required</small>
+
+                </div>
+                <div *ngIf="myForm.controls.c_password.touched && myForm.hasError('passwordMismatch')" class="alert alert-danger mt-1">
+                    <small>Passwords do not match.</small>
+                </div>
+
+            </div>
+            <div class="col-md-12">
+                <input type="submit" class="btn btn-primary w-100 my-2" value="Sign In" id="">
+            </div>
+        </div>
+    </form>
+
+    </div>
+</section>
+

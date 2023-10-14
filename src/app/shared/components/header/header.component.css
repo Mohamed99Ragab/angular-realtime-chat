@@ -1,0 +1,56 @@
+
+
+.navbar-brand
+{
+    color: #fff;
+    font-weight: 700;
+}
+.navbar-nav > li > a
+{
+    color: #fff;
+}
+
+
+.navbar-toggler
+{
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+}
+
+
+.btn-login
+{
+    border: none;
+    outline: none;
+    background-color: #fff;
+    color: darkblue !important;
+    padding: 7px 10px;
+    text-decoration: none;
+
+
+}
+
+
+.btn-register
+{
+    border: none;
+    outline: none;
+    background-color: rgb(42, 183, 42);
+    color: #fff;
+    padding: 7px 10px;
+    text-decoration: none;
+}
+
+
+.btn-logout
+{
+    border: none;
+    outline: none;
+    background-color: rgb(199, 41, 41);
+    color: #fff;
+    padding: 7px 10px;
+    text-decoration: none;
+}
